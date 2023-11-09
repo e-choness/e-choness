@@ -2,7 +2,7 @@
 
 ## :flower_playing_cards: Check out my new portfolio [here](https://e-choness.github.io/portfolio-site/)!
 
-![I am a passionate Game Developer and Software Engineer](assets/images/banner.png)
+[![I am a passionate Game Developer and Software Engineer](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
 I am passionate about help people make engaging video games :video_game: and keep learning everyday 🌱
 
