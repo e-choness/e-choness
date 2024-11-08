@@ -10,8 +10,8 @@ I am passionate about help people make engaging video games :video_game: and kee
 
 [![Twitter Badge](https://img.shields.io/badge/-@_echo_yin_-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_echo_yin)](https://twitter.com/_echo_yin) [![Linkedin Badge](https://img.shields.io/badge/-EchoYin-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/) [![Mail Badge](https://img.shields.io/badge/-SendMeEmail-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com)
 
-- 🤔 I’m currently working on several projects!
-- 🔭 Just landed on Online Programmer at [Brass Lion Entertainment](https://brasslionentertainment.com/)!
+- 🤔 I have several personal open source game projects here!
+- 🔭 I'm an Online Programmer at [Brass Lion Entertainment](https://brasslionentertainment.com/)!
 <!--START_SECTION:waka-->
 <!--END_SECTION:waka-->
 ### :computer: Development Skills
