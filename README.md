@@ -2,7 +2,7 @@
 
 [![I am a passionate Game Developer and Software Engineer](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
-I am passionate about help people make engaging video games :video_game: and keep learning everyday 🌱
+I'm building a blog to share systemic knowledge about Platform Engineering. Stay tuned! 🐾
 
 ## :mailbox: Reach me out!
 
