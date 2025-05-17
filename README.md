@@ -2,7 +2,7 @@
 
 [![I am a passionate Game Developer and Software Engineer](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
-I'm building a blog to share systemic knowledge about Platform Engineering. Stay tuned! 🐾
+I'm building a blog to share systemic knowledge about Platform Engineering. You can access it [here](https://e-choness.github.io/ctrl-alt-deploy/blog/)!
 
 ## :mailbox: Reach me out!
 
