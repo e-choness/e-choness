@@ -7,13 +7,17 @@
 ![Profile views](https://komarev.com/ghpvc/?username=e-choness&label=Profile%20views&color=0e75b6&style=flat)
 
 - 🔭 I’m currently working on [Ctrl-Alt-Deploy](https://e-choness.github.io/ctrl-alt-deploy/blog/)
-- 📫 How to reach me: [![Mail Badge](https://img.shields.io/badge/-SendMeEmail-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com)
 
 ## :mailbox: Reach me out
 
-[![Twitter Badge](https://img.shields.io/badge/-@_echo_yin_-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_echo_yin)](https://twitter.com/_echo_yin) [![Linkedin Badge](https://img.shields.io/badge/-EchoYin-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/)
+- [![Twitter Badge](https://img.shields.io/badge/-@_echo_yin_-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_echo_yin)](https://twitter.com/_echo_yin)
+- [![Linkedin Badge](https://img.shields.io/badge/-EchoYin-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/)
+- [![Mail Badge](https://img.shields.io/badge/-SendMeEmail-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com)
 
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=e-choness&" alt="e-choness" /></p>
+<p>
+  <img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=e-choness&theme=dark" alt="e-choness" /> &nbsp; &nbsp; 
+  <img align="center" src="https://github-readme-stats.vercel.app/api?username=e-choness&show_icons=true&locale=en&theme=dark" alt="e-choness" />
+</p>
 
 |                                                                                   ☁️ Cloud & DevOps                                                                                    |                                                                                           🖥️ Languages                                                                                           |                                                                                        📚 Frameworks                                                                                        |                                                                       🗃️ Databases                                                                       |                                                       🤖 ML & Data Science                                                        |                                                                                             🎮 Game Dev                                                                                             |                                                          🛠️ Tools                                                          |
 | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
