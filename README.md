@@ -1,6 +1,6 @@
 # Hi 👋, I'm Echo (Beili) Yin
 
-## :computer: A Full-Stack Engineer
+## :computer: A.I. Engineer
 
 [![Banner](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
