@@ -1,26 +1,20 @@
 <div align="center">
 
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=24&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Hi+there%2C+I'm+Echo+%F0%9F%91%8B;A.I.+Engineer+%7C+Builder+%7C+Explorer;Turning+ideas+into+intelligent+systems)](https://git.io/typing-svg)
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Hi+there%2C+I'm+Echo+%F0%9F%91%8B;Senior+A.I.+Engineer+%7C+Builder+%7C+Explorer;Turning+ideas+into+intelligent+systems)](https://git.io/typing-svg)
 
 </div>
 
-<br>
-
+&nbsp;
 <div align="center">
 
 [![Banner](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
 </div>
 
-<br>
-
+&nbsp;
 <div align="center">
 
-![Profile views](https://komarev.com/ghpvc/?username=e-choness&label=Profile%20views&color=0e75b6&style=flat)
-&nbsp;
-[![Twitter](https://img.shields.io/badge/-@_echo_yin_-1ca0f1?style=flat&logo=twitter&logoColor=white)](https://twitter.com/_echo_yin)
-[![LinkedIn](https://img.shields.io/badge/-Echo%20Yin-0e76a8?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/)
-[![Gmail](https://img.shields.io/badge/-Email%20Me-c0392b?style=flat&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com)
+[![Twitter](https://img.shields.io/badge/-@__echo__yin__-1ca0f1?style=flat-square&logo=x&logoColor=white)](https://twitter.com/_echo_yin) [![LinkedIn](https://img.shields.io/badge/-Echo%20Yin-0e76a8?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/) [![Gmail](https://img.shields.io/badge/-Email%20Me-c0392b?style=flat-square&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com) [![Visits](https://komarev.com/ghpvc/?username=e-choness&logo=GitHub&label=visits&color=336699&logoColor=white&style=flat-square)](https://github.com/e-choness)
 
 </div>
 
@@ -28,7 +22,7 @@
 
 ## 🧠 About Me
 
-- 🔭 Currently building **[Ctrl-Alt-Deploy](https://e-choness.github.io/ctrl-alt-deploy/blog/)** — a blog at the intersection of AI and engineering
+- 🔭 Currently building **[NeighborIQ](https://github.com/e-choness/NeighborIQ)** — AI insight property discovery application. A modernization for my academic project **[House Discovery](https://github.com/e-choness/WebGIS-Application-for-House-Discovery)**
 - 🤖 Passionate about intelligent systems, automation, and developer tooling
 - 🌱 Always exploring what's next at the edge of code and intelligence
 
@@ -105,7 +99,7 @@ mindmap
 ## 📈 Contribution Activity
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=e-choness&theme=tokyo-night&hide_border=true&area=true" alt="contribution activity graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=e-choness&bg_color=1a1b27&color=70a5fd&line=70a5fd&point=bf91f3&area=true&hide_border=true" alt="contribution activity graph" />
 </div>
 
 ---
