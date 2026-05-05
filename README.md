@@ -1,31 +1,109 @@
-# Hi 👋, I'm Echo (Beili) Yin
+<div align="center">
 
-## :computer: A.I. Engineer
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=620&lines=Hi+there%2C+I'm+Echo+%F0%9F%91%8B;Senior+A.I.+Engineer+%7C+Builder+%7C+Explorer;Turning+ideas+into+intelligent+systems)](https://git.io/typing-svg)
+
+</div>
+
+&nbsp;
+<div align="center">
 
 [![Banner](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
 
-![Profile views](https://komarev.com/ghpvc/?username=e-choness&label=Profile%20views&color=0e75b6&style=flat)
-
-- 🔭 I’m currently working on [Ctrl-Alt-Deploy](https://e-choness.github.io/ctrl-alt-deploy/blog/)
-
-## :mailbox: Reach me out
-
-- [![Twitter Badge](https://img.shields.io/badge/-@_echo_yin_-1ca0f1?style=flat&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/_echo_yin)](https://twitter.com/_echo_yin)
-- [![Linkedin Badge](https://img.shields.io/badge/-EchoYin-0e76a8?style=flat&labelColor=0e76a8&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/)
-- [![Mail Badge](https://img.shields.io/badge/-SendMeEmail-c0392b?style=flat&labelColor=c0392b&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com)
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=e-choness&theme=dark" alt="e-choness streak stats" />
-  <img src="https://github-readme-stats.vercel.app/api?username=e-choness&show_icons=true&locale=en&theme=dark" alt="e-choness stats" />
 </div>
 
-## 🛠️ Tech Stacks
-|                                                                                   ☁️ Cloud & DevOps                                                                                    |                                                                                           🖥️ Languages                                                                                           |                                                                                        📚 Frameworks                                                                                        |                                                                       🗃️ Databases                                                                       |                                                       🤖 ML & Data Science                                                        |                                                                                             🎮 Game Dev                                                                                             |                                                          🛠️ Tools                                                          |
-| :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------: |
-| [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" width="40" height="40">](https://aws.amazon.com) |              [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" width="40" height="40">](https://www.w3schools.com/cpp/)               |          [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" width="40" height="40">](https://dotnet.microsoft.com/)          | [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/oracle/oracle-original.svg" width="40" height="40">](https://www.oracle.com/) |       [<img src="https://www.vectorlogo.zone/logos/pytorch/pytorch-icon.svg" width="40" height="40">](https://pytorch.org/)       |                                         [<img src="https://www.vectorlogo.zone/logos/unity3d/unity3d-icon.svg" width="40" height="40">](https://unity.com/)                                         | [<img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" width="40" height="40">](https://postman.com) |
-|                  [<img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" width="40" height="40">](https://azure.microsoft.com/en-in/)                   |                  [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/csharp/csharp-original.svg" width="40" height="40">](https://www.w3schools.com/cs/)                  |                                 [<img src="https://en.wikipedia.org/wiki/File:Flask_logo.svg" width="40" height="40">](https://flask.palletsprojects.com/)                                  | [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original-wordmark.svg" width="40" height="40">](https://redis.io) | [<img src="https://www.vectorlogo.zone/logos/tensorflow/tensorflow-icon.svg" width="40" height="40">](https://www.tensorflow.org) | [<img src="https://raw.githubusercontent.com/kenangundogan/fontisto/036b7eca71aab1bef8e6a0518f7329f13ed62f6b/icons/svg/brand/unreal-engine.svg" width="40" height="40">](https://unrealengine.com/) |                                                                                                                            |
-|           [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original-wordmark.svg" width="40" height="40">](https://www.docker.com/)            | [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" width="40" height="40">](https://developer.mozilla.org/en-US/docs/Web/JavaScript) |                [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original-wordmark.svg" width="40" height="40">](https://nodejs.org)                 |                  [<img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" width="40" height="40">](https://www.sqlite.org/)                  |                                                                                                                                   |                                                                                                                                                                                                     |                                                                                                                            |
-|                                [<img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" width="40" height="40">](https://www.jenkins.io)                                 |                     [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" width="40" height="40">](https://www.python.org)                      | [<img src="https://raw.githubusercontent.com/detain/svg-logos/780f25886640cef088af994181646db2f6b1a3f8/svg/xamarin.svg" width="40" height="40">](https://dotnet.microsoft.com/apps/xamarin) |             [<img src="https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg" width="40" height="40">](https://firebase.google.com/)              |                                                                                                                                   |                                                                                                                                                                                                     |                                                                                                                            |
-|                                 [<img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" width="40" height="40">](https://git-scm.com/)                                  |                                                                                                                                                                                                  |                                                                                                                                                                                             |                                                                                                                                                          |                                                                                                                                   |                                                                                                                                                                                                     |                                                                                                                            |
-|                                  [<img src="https://www.vectorlogo.zone/logos/grafana/grafana-icon.svg" width="40" height="40">](https://grafana.com)                                  |                                                                                                                                                                                                  |                                                                                                                                                                                             |                                                                                                                                                          |                                                                                                                                   |                                                                                                                                                                                                     |                                                                                                                            |
-|                 [<img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/linux/linux-original.svg" width="40" height="40">](https://www.linux.org/)                  |                                                                                                                                                                                                  |                                                                                                                                                                                             |                                                                                                                                                          |                                                                                                                                   |                                                                                                                                                                                                     |                                                                                                                            |
+&nbsp;
+<div align="center">
+
+[![Twitter](https://img.shields.io/badge/-@__echo__yin__-1ca0f1?style=flat-square&logo=x&logoColor=white)](https://twitter.com/_echo_yin) [![LinkedIn](https://img.shields.io/badge/-Echo%20Yin-0e76a8?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/) [![Gmail](https://img.shields.io/badge/-Email%20Me-c0392b?style=flat-square&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com) [![Visits](https://komarev.com/ghpvc/?username=e-choness&logo=GitHub&label=visits&color=336699&logoColor=white&style=flat-square)](https://github.com/e-choness)
+
+</div>
+
+---
+
+## 🧠 About Me
+
+- 🔭 Currently building **[NeighborIQ](https://github.com/e-choness/NeighborIQ)** — AI insight property discovery application. A modernization for my academic project **[House Discovery](https://github.com/e-choness/WebGIS-Application-for-House-Discovery)**
+- 🤖 Passionate about intelligent systems, automation, and developer tooling
+- 🌱 Always exploring what's next at the edge of code and intelligence
+
+---
+
+## 🛠️ Skills
+
+```mermaid
+mindmap
+  root((Skills))
+    ((Languages))
+      Python
+      JavaScript
+      TypeScript
+      R
+      SQL
+      Bash
+      PowerShell
+    ((Frameworks))
+      React
+      Flask
+      Django
+      FastAPI
+      Express
+      Electron
+      Next.js
+      Dash
+      R-Shiny
+      Streamlit
+      Pydantic
+      SQLAlchemy
+    ((AI/ML))
+      PyTorch
+      TensorFlow
+      scikit-learn
+      LangChain
+    ((DevOps))
+      Docker
+      Linux
+      Jenkins
+      Git
+      Grafana
+    ((Cloud))
+      AWS
+      Azure
+```
+
+---
+
+## 📊 GitHub Stats
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=e-choness&theme=tokyonight&hide_border=true" alt="GitHub streak stats" />
+</div>
+
+<br>
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=e-choness&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub stats" />
+  &nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=e-choness&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
+</div>
+
+---
+
+## 🏆 Trophies
+
+<div align="center">
+  <img src="https://github-profile-trophy.vercel.app/?username=e-choness&theme=tokyonight&no-frame=true&row=1&column=7" alt="GitHub trophies" />
+</div>
+
+---
+
+## 📈 Contribution Activity
+
+<div align="center">
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=e-choness&bg_color=1a1b27&color=70a5fd&line=70a5fd&point=bf91f3&area=true&hide_border=true" alt="contribution activity graph" />
+</div>
+
+---
+
+<div align="center">
+  <sub><i>⚡ "The best way to predict the future is to invent it." — Alan Kay</i></sub>
+</div>
