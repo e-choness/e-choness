@@ -18,15 +18,11 @@
 
 </div>
 
----
-
 ## 🧠 About Me
 
 - 🔭 Currently building **[NeighborIQ](https://github.com/e-choness/NeighborIQ)** — AI insight property discovery application. A modernization for my academic project **[House Discovery](https://github.com/e-choness/WebGIS-Application-for-House-Discovery)**
 - 🤖 Passionate about intelligent systems, automation, and developer tooling
 - 🌱 Always exploring what's next at the edge of code and intelligence
-
----
 
 ## 🛠️ Skills
 
@@ -70,8 +66,6 @@ mindmap
       Azure
 ```
 
----
-
 ## 📊 GitHub Stats
 
 <div align="center">
@@ -86,15 +80,11 @@ mindmap
   <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=e-choness&layout=compact&theme=tokyonight&hide_border=true" alt="Top languages" />
 </div>
 
----
-
 ## 🏆 Trophies
 
 <div align="center">
   <img src="https://github-profile-trophy.vercel.app/?username=e-choness&theme=tokyonight&no-frame=true&row=1&column=7" alt="GitHub trophies" />
 </div>
-
----
 
 ## 📈 Contribution Activity
 
