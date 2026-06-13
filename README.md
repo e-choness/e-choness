@@ -20,7 +20,7 @@
 
 ## 🧠 About Me
 
-- 🔭 Currently building **[NeighborIQ](https://github.com/e-choness/NeighborIQ)** — AI insight property discovery application. A modernization for my academic project **[House Discovery](https://github.com/e-choness/WebGIS-Application-for-House-Discovery)**
+- 🔭 Currently building **[Aegis](https://github.com/e-choness/aegis)** — Aegis is an open-source, plugin-first AI gateway framework written in Python. It sits between applications and LLM providers, applying governance rules to every request and response. **[Try Live Demo](https://aegis-ai.dev/)**
 - 🤖 Passionate about intelligent systems, automation, and developer tooling
 - 🌱 Always exploring what's next at the edge of code and intelligence
 
