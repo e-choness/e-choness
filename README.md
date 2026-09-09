@@ -7,20 +7,12 @@
 &nbsp;
 <div align="center">
 
-[![Banner](assets/images/banner.png)](https://e-choness.github.io/portfolio-site/)
-
-</div>
-
-&nbsp;
-<div align="center">
-
 [![Twitter](https://img.shields.io/badge/-@__echo__yin__-1ca0f1?style=flat-square&logo=x&logoColor=white)](https://twitter.com/_echo_yin) [![LinkedIn](https://img.shields.io/badge/-Echo%20Yin-0e76a8?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/echoyin0451/) [![Gmail](https://img.shields.io/badge/-Email%20Me-c0392b?style=flat-square&logo=gmail&logoColor=white)](mailto:eyinoverthinking@gamil.com) [![Visits](https://komarev.com/ghpvc/?username=e-choness&logo=GitHub&label=visits&color=336699&logoColor=white&style=flat-square)](https://github.com/e-choness)
 
 </div>
 
 ## 🧠 About Me
 
-- 🔭 Currently building **[Aegis](https://github.com/e-choness/aegis)** — Aegis is an open-source, plugin-first AI gateway framework written in Python. It sits between applications and LLM providers, applying governance rules to every request and response. **[Try Live Demo](https://huggingface.co/spaces/echoness/aegis-server)**
 - 🤖 Passionate about intelligent systems, automation, and developer tooling
 - 🌱 Always exploring what's next at the edge of code and intelligence
 
