@@ -1,0 +1,46 @@
+name: Refresh profile
+
+# Rebuilds the README's SVGs and lists (scripts/build.mjs) from the live EchoOS
+# content.json and the public contribution calendar, and commits only if
+# something changed.
+on:
+  schedule:
+    - cron: "23 8 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "scripts/build.mjs"
+      - ".github/workflows/refresh.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh
+  cancel-in-progress: true
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Build
+        run: node scripts/build.mjs
+
+      - name: Commit if changed
+        run: |
+          git add -A README.md assets/generated
+          if git diff --cached --quiet; then
+            echo "Nothing changed"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898283+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh profile README"
+          git push

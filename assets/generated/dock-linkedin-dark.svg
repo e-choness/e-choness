@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="86" viewBox="0 0 76 86" role="img" aria-label="LinkedIn"><title>LinkedIn</title><defs><linearGradient id="tdg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.07)"/><stop offset=".65" stop-color="rgba(255,255,255,.07)" stop-opacity="0"/></linearGradient></defs>
+<rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="#272443" stroke="rgba(214,204,255,.13)"/>
+<rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="url(#tdg)"/>
+<path d="M24 5.5h28" stroke="rgba(255,255,255,.17)"/>
+<text x="38" y="38" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" font-weight="600" fill="#ecebf5">in</text>
+<text x="38" y="78" text-anchor="middle" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#a09bbb">LinkedIn</text></svg>

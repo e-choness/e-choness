@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76" height="86" viewBox="0 0 76 86" role="img" aria-label="Email"><title>Email</title><defs><linearGradient id="tlg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.42)"/><stop offset=".65" stop-color="rgba(255,255,255,.42)" stop-opacity="0"/></linearGradient></defs>
+<rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="#ebe7f5" stroke="rgba(58,44,120,.14)"/>
+<rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="url(#tlg)"/>
+<path d="M24 5.5h28" stroke="rgba(255,255,255,.75)"/>
+<text x="38" y="38" text-anchor="middle" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="17" font-weight="600" fill="#1d1a2c">@</text>
+<text x="38" y="78" text-anchor="middle" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="12" font-weight="600" fill="#645f7b">Email</text></svg>
