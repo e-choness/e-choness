@@ -1,6 +1,6 @@
 // scripts/build.mjs — rebuild the profile README's images and lists from live
 // data, so nothing here is typed by hand twice:
-//   • EchoOS content.json  → hero, terminal + skills windows, posts, projects
+//   • EchoOS content.json  → hero, terminal + skills windows, project cards
 //   • public contribution calendar → the 3D activity skyline
 // Writes assets/generated/*.svg (a light and a dark copy of each) and the
 // marked sections of README.md. No dependencies: `node scripts/build.mjs`.
@@ -395,6 +395,27 @@ function skyline(T, id, days) {
   return svg(W, H, `${total} GitHub contributions in the last 12 months. Busiest day ${facts[0][1]}; longest streak ${longest} days.`, b);
 }
 
+// ── project bars: one slim glass bar per featured project ────────────────────
+const firstSentence = (d) => (d.match(/^.*?[.!?](\s|$)/) || [d])[0].trim();
+// Drawn at the same 1200 width as the other images and shown at 100%, so it
+// scales with them; a title row, a hairline, then one line of description.
+function project(T, id, p) {
+  const W = 1200, H = 92, cy = 26.5;
+  // name, then the stack in mono; one <text> so the stack follows the name
+  // whatever font the viewer gets
+  const stack = p.tech.slice(0, 3).join(' · ');
+  const full = p.desc.replace(/\s*Built with .*$/, ''), max = Math.floor((W - 76) / (15 * 0.5));
+  const desc = len(full) <= max ? full : `${[...full].slice(0, max).join('').replace(/[\s,;:]*\S*$/, '')}…`;
+  const b = defs(T, id) + `<rect x=".5" y="4.5" width="${W - 1}" height="${H - 9}" rx="12" fill="${T.surface}" stroke="${T.line}"/>
+<path d="M.5 48.5V16.5a12 12 0 0 1 12-12H${W - 12.5}a12 12 0 0 1 12 12V48.5Z" fill="url(#${id}sheen)"/>
+<line x1=".5" y1="48.5" x2="${W - .5}" y2="48.5" stroke="${T.line}"/>
+<text x="38" y="${cy + 46}" font-family="${SANS}" font-size="15" fill="${T.inkSoft}">${esc(desc)}</text>
+<circle cx="22" cy="${cy}" r="4" fill="${T.accent}"/>
+<text x="38" y="${cy + 6}" font-family="${SANS}" font-size="18" font-weight="700" fill="${T.ink}">${esc(p.title)}<tspan dx="14" font-family="${MONO}" font-size="15" font-weight="400" fill="${T.muted}">${esc(stack)}</tspan></text>
+<text x="${W - 20}" y="${cy + 6}" text-anchor="end" font-family="${MONO}" font-size="18" font-weight="600" fill="${T.accent}">↗</text>`;
+  return svg(W, H, `${p.title}: ${firstSentence(p.desc)} Built with ${p.tech.join(', ')}.`, b);
+}
+
 // ── dock: one linked tile per app, like the EchoOS dock ──────────────────────
 const DOCK = [
   ['about', 'id', 'About', `${SITE}#/about`],
@@ -418,21 +439,9 @@ function tile(T, id, glyph, label) {
 }
 
 // ── README sections ──────────────────────────────────────────────────────────
-function postsMd(c) {
-  return c.posts.slice(0, 5).map((p) =>
-    `- **[${p.title}](${SITE}#/blog/${p.slug})**  \n  <sub>${p.date} · ${p.readTime ? `${p.readTime} min read` : p.categories?.[0] ?? ''}</sub>`).join('\n');
-}
 function projectsMd(c) {
-  const rows = c.projects.filter((p) => p.featured).map((p) => {
-    const links = [
-      p.repo && `[code](${p.repo})`,
-      p.demo && !p.demoPending && `[live](${p.demo})`,
-      p.docs && `[docs](${p.docs})`,
-    ].filter(Boolean).join(' · ');
-    const desc = (p.desc.match(/^.*?[.!?](\s|$)/) || [p.desc])[0].trim();
-    return `| [**${p.title}**](${SITE}#/proj/${p.slug}) | ${desc} | ${p.tech.slice(0, 4).join(', ')} | ${links} |`;
-  });
-  return ['| Project | What it is | Stack | Links |', '|---|---|---|---|', ...rows].join('\n');
+  return c.projects.filter((p) => p.featured).map((p) =>
+    `<a href="${SITE}#/proj/${p.slug}"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-${p.slug}-dark.svg"><img src="assets/generated/project-${p.slug}-light.svg" alt="${esc(p.title)}: ${esc(firstSentence(p.desc))}" width="100%"></picture></a><br>`).join('\n');
 }
 function dockMd() {
   return DOCK.map(([key, , label, href]) =>
@@ -452,13 +461,13 @@ for (const [name, T] of Object.entries(THEMES)) {
   files[`desktop-${name}.svg`] = desktop(T, `d${id}`, content);
   files[`skyline-${name}.svg`] = skyline(T, `s${id}`, days);
   for (const [key, glyph, label] of DOCK) files[`dock-${key}-${name}.svg`] = tile(T, `t${id}`, glyph, label);
+  for (const p of content.projects.filter((q) => q.featured)) files[`project-${p.slug}-${name}.svg`] = project(T, `p${id}`, p);
 }
 for (const [f, body] of Object.entries(files)) await writeFile(new URL(f, out), body);
 
 const readmeUrl = new URL('README.md', root);
 let md = await readFile(readmeUrl, 'utf8');
 md = splice(md, 'DOCK', dockMd());
-md = splice(md, 'LATEST-POSTS', postsMd(content));
 md = splice(md, 'PROJECTS', projectsMd(content));
 await writeFile(readmeUrl, md);
-console.log(`wrote ${Object.keys(files).length} SVGs · ${days.length} days · ${content.posts.length} posts`);
+console.log(`wrote ${Object.keys(files).length} SVGs · ${days.length} days`);

@@ -28,31 +28,14 @@
   </picture>
 </a>
 
-## Latest writing
-
-<!-- LATEST-POSTS:START -->
-- **[The Clean Envelope: Debugging Production Pipelines Without Touching PII](https://e-choness.github.io/portfolio-site/#/blog/PII-masking)**  
-  <sub>Jul 14, 2026 · 11 min read</sub>
-- **[The Honest Parts: Residency, Tenancy, and Saying No](https://e-choness.github.io/portfolio-site/#/blog/the-honest-parts-residency-tenancy-scope)**  
-  <sub>May 27, 2026 · 8 min read</sub>
-- **[Guardrails That Tell You the Truth About Streaming](https://e-choness.github.io/portfolio-site/#/blog/guardrails-that-tell-you-the-truth)**  
-  <sub>May 20, 2026 · 9 min read</sub>
-- **[Rebuilding an AI Gateway as a Framework, Not a Product](https://e-choness.github.io/portfolio-site/#/blog/rebuilding-aegis-as-a-framework)**  
-  <sub>May 13, 2026 · 9 min read</sub>
-- **[Advanced RAG: Hybrid Search with Sparse and Dense Retrieval Plus Cross Encoder Reranking](https://e-choness.github.io/portfolio-site/#/blog/advanced-rag)**  
-  <sub>Dec 29, 2025 · 17 min read</sub>
-<!-- LATEST-POSTS:END -->
-
 ## Projects
 
 <!-- PROJECTS:START -->
-| Project | What it is | Stack | Links |
-|---|---|---|---|
-| [**CUDA ELM Feature Extraction Benchmark**](https://e-choness.github.io/portfolio-site/#/proj/feature-extraction) | GPU-accelerated Extreme Learning Machine feature-extraction and benchmarking toolkit. | C++, CUDA, CMake, GoogleTest | [code](https://github.com/e-choness/feature_extraction_cuda_elm) · [live](https://e-choness.github.io/feature_extraction_cuda_elm) |
-| [**Aegis AI Gateway**](https://e-choness.github.io/portfolio-site/#/proj/aegis) | A plugin-first AI gateway framework. | Python, FastAPI, LangGraph, Docker | [code](https://github.com/e-choness/aegis) · [live](https://huggingface.co/spaces/echoness/aegis-server) |
-| [**EcoManage**](https://e-choness.github.io/portfolio-site/#/proj/eco-manage) | A full-stack renewable energy and resource management dashboard to monitor, analyze, and optimize consumption. | TypeScript, React, Node.js, MongoDB | [code](https://github.com/e-choness/eco-manage) |
-| [**NeighborIQ**](https://e-choness.github.io/portfolio-site/#/proj/neighbor-iq) | Rental-property analysis for small investors in Canadian cities: fair value from comparable listings, cash flow under Canadian mortgage rules, and neighbourhood open data. | FastAPI, Vue 3, PostgreSQL, PostGIS | [code](https://github.com/e-choness/NeighborIQ) · [docs](https://e-choness.github.io/NeighborIQ/) |
-| [**PDF Sanitizer**](https://e-choness.github.io/portfolio-site/#/proj/pdf-sanitizer) | An offline Windows desktop app that strips scripts, attachments, outbound links and metadata from PDF files, verifying every result before replacing the original. | Rust, Tauri, Svelte, JavaScript | [code](https://github.com/e-choness/pdf-sanitizer) · [live](https://e-choness.github.io/pdf-sanitizer/) |
+<a href="https://e-choness.github.io/portfolio-site/#/proj/feature-extraction"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-feature-extraction-dark.svg"><img src="assets/generated/project-feature-extraction-light.svg" alt="CUDA ELM Feature Extraction Benchmark: GPU-accelerated Extreme Learning Machine feature-extraction and benchmarking toolkit." width="100%"></picture></a><br>
+<a href="https://e-choness.github.io/portfolio-site/#/proj/aegis"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-aegis-dark.svg"><img src="assets/generated/project-aegis-light.svg" alt="Aegis AI Gateway: A plugin-first AI gateway framework." width="100%"></picture></a><br>
+<a href="https://e-choness.github.io/portfolio-site/#/proj/eco-manage"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-eco-manage-dark.svg"><img src="assets/generated/project-eco-manage-light.svg" alt="EcoManage: A full-stack renewable energy and resource management dashboard to monitor, analyze, and optimize consumption." width="100%"></picture></a><br>
+<a href="https://e-choness.github.io/portfolio-site/#/proj/neighbor-iq"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-neighbor-iq-dark.svg"><img src="assets/generated/project-neighbor-iq-light.svg" alt="NeighborIQ: Rental-property analysis for small investors in Canadian cities: fair value from comparable listings, cash flow under Canadian mortgage rules, and neighbourhood open data." width="100%"></picture></a><br>
+<a href="https://e-choness.github.io/portfolio-site/#/proj/pdf-sanitizer"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-pdf-sanitizer-dark.svg"><img src="assets/generated/project-pdf-sanitizer-light.svg" alt="PDF Sanitizer: An offline Windows desktop app that strips scripts, attachments, outbound links and metadata from PDF files, verifying every result before replacing the original." width="100%"></picture></a><br>
 <!-- PROJECTS:END -->
 
 ## Activity

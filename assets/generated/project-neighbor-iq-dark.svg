@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92" viewBox="0 0 1200 92" role="img" aria-label="NeighborIQ: Rental-property analysis for small investors in Canadian cities: fair value from comparable listings, cash flow under Canadian mortgage rules, and neighbourhood open data. Built with FastAPI, Vue 3, PostgreSQL, PostGIS, Celery."><title>NeighborIQ: Rental-property analysis for small investors in Canadian cities: fair value from comparable listings, cash flow under Canadian mortgage rules, and neighbourhood open data. Built with FastAPI, Vue 3, PostgreSQL, PostGIS, Celery.</title><defs>
+<filter id="pdsh" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="rgba(0,0,0,.6)" flood-opacity="1"/></filter>
+<linearGradient id="pdsheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.07)"/><stop offset=".65" stop-color="rgba(255,255,255,.07)" stop-opacity="0"/></linearGradient>
+<radialGradient id="pdblob"><stop offset="0" stop-color="rgba(150,130,240,.13)"/><stop offset="1" stop-color="rgba(150,130,240,.13)" stop-opacity="0"/></radialGradient>
+</defs><rect x=".5" y="4.5" width="1199" height="83" rx="12" fill="#1c1a31" stroke="rgba(214,204,255,.13)"/>
+<path d="M.5 48.5V16.5a12 12 0 0 1 12-12H1187.5a12 12 0 0 1 12 12V48.5Z" fill="url(#pdsheen)"/>
+<line x1=".5" y1="48.5" x2="1199.5" y2="48.5" stroke="rgba(214,204,255,.13)"/>
+<text x="38" y="72.5" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="15" fill="#d2cfe2">Rental-property analysis for small investors in Canadian cities: fair value from comparable listings, cash flow under Canadian mortgage rules, and…</text>
+<circle cx="22" cy="26.5" r="4" fill="#a597f2"/>
+<text x="38" y="32.5" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#ecebf5">NeighborIQ<tspan dx="14" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" font-weight="400" fill="#a09bbb">FastAPI · Vue 3 · PostgreSQL</tspan></text>
+<text x="1180" y="32.5" text-anchor="end" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="18" font-weight="600" fill="#a597f2">↗</text></svg>

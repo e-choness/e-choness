@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="92" viewBox="0 0 1200 92" role="img" aria-label="CUDA ELM Feature Extraction Benchmark: GPU-accelerated Extreme Learning Machine feature-extraction and benchmarking toolkit. Built with C++, CUDA, CMake, GoogleTest, Google Benchmark, Docker, FastAPI, Python."><title>CUDA ELM Feature Extraction Benchmark: GPU-accelerated Extreme Learning Machine feature-extraction and benchmarking toolkit. Built with C++, CUDA, CMake, GoogleTest, Google Benchmark, Docker, FastAPI, Python.</title><defs>
+<filter id="plsh" x="-10%" y="-10%" width="120%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="rgba(40,30,90,.28)" flood-opacity="1"/></filter>
+<linearGradient id="plsheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="rgba(255,255,255,.42)"/><stop offset=".65" stop-color="rgba(255,255,255,.42)" stop-opacity="0"/></linearGradient>
+<radialGradient id="plblob"><stop offset="0" stop-color="rgba(106,90,214,.10)"/><stop offset="1" stop-color="rgba(106,90,214,.10)" stop-opacity="0"/></radialGradient>
+</defs><rect x=".5" y="4.5" width="1199" height="83" rx="12" fill="#f6f3fb" stroke="rgba(58,44,120,.14)"/>
+<path d="M.5 48.5V16.5a12 12 0 0 1 12-12H1187.5a12 12 0 0 1 12 12V48.5Z" fill="url(#plsheen)"/>
+<line x1=".5" y1="48.5" x2="1199.5" y2="48.5" stroke="rgba(58,44,120,.14)"/>
+<text x="38" y="72.5" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="15" fill="#35314a">GPU-accelerated Extreme Learning Machine feature-extraction and benchmarking toolkit. Reproducible experiments, modern CUDA/C++ design, and…</text>
+<circle cx="22" cy="26.5" r="4" fill="#6a5ad6"/>
+<text x="38" y="32.5" font-family="'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif" font-size="18" font-weight="700" fill="#1d1a2c">CUDA ELM Feature Extraction Benchmark<tspan dx="14" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="15" font-weight="400" fill="#645f7b">C++ · CUDA · CMake</tspan></text>
+<text x="1180" y="32.5" text-anchor="end" font-family="'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace" font-size="18" font-weight="600" fill="#6a5ad6">↗</text></svg>
