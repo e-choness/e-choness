@@ -1,0 +1,12 @@
+# docker compose run --rm tools npm run build      # README SVGs (what CI runs)
+# docker compose run --rm tools npm run banners    # LinkedIn + X banners
+# docker compose run --rm tools bash               # a shell in the toolbox
+services:
+  tools:
+    build: .
+    image: e-choness-tools
+    volumes:
+      - .:/work
+      # keep a host node_modules (Windows/macOS builds) out of the container's view
+      - /work/node_modules
+    init: true
