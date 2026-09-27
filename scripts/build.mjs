@@ -6,6 +6,7 @@
 // marked sections of README.md. No dependencies: `node scripts/build.mjs`.
 // Run daily by .github/workflows/refresh.yml.
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 const USER = 'e-choness';
 const SITE = 'https://e-choness.github.io/portfolio-site/';
@@ -15,6 +16,19 @@ const out = new URL('assets/generated/', root);
 // Two short lines the site doesn't carry in a form that fits a terminal row.
 const PATH = 'enterprise systems → online games → applied AI';
 const WORK = 'RAG pipelines · MCP tooling · LLM gateways';
+
+// Hero copy for recruiters and hiring managers: a problem the team has and
+// how I fix it, typed in one at a time (the part after ' → ' is drawn as the
+// answer), the stack as chips, and an availability pill (set to '' to hide it).
+const PITCH = 'YOUR PROBLEM → MY FIX';
+const BUILD = [
+  "can't trust the answers? → RAG with citations",
+  "agents can't reach your data? → MCP tool servers",
+  'LLM bills creeping up? → a gateway with budgets',
+  'stuck at the demo? → monitored production AI',
+];
+const STACK = ['Python', 'C#', 'C++', 'PyTorch', 'LangGraph', 'FastAPI', 'Azure AI Foundry', 'AWS', 'Docker / K8s', 'PostgreSQL'];
+const OPEN = 'open to senior AI roles';
 
 // ── EchoOS design tokens (portfolio-site/_sass/abstracts/_tokens.scss) ──────
 const THEMES = {
@@ -34,6 +48,13 @@ const THEMES = {
 const SANS = `'Archivo','Segoe UI',-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif`;
 const MONO = `'IBM Plex Mono',ui-monospace,SFMono-Regular,Menlo,Consolas,monospace`;
 const CW = 0.6; // monospace advance, em; typed lines pin it with textLength
+
+// Bold display type. GitHub shows these SVGs as <img>, which never fetches web
+// fonts, so the Latin subset of Space Grotesk Bold (OFL, ~13 KB) is embedded
+// in every image that sets bold sans; everything else stays on system fonts.
+const DISPLAY = `'Space Grotesk',${SANS}`;
+const FACE = `<style>@font-face{font-family:'Space Grotesk';font-weight:700;src:url(data:font/woff2;base64,${
+  (await readFile(new URL('../assets/fonts/space-grotesk-latin-700.woff2', import.meta.url))).toString('base64')}) format('woff2')}</style>`;
 
 // ── small helpers ─────────────────────────────────────────────────────────────
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -84,14 +105,14 @@ function defs(T, id) {
 
 // The EchoOS wallpaper: drifting glow blobs, a starfield, faint constellation
 // lines between near neighbours, a few stars twinkling.
-function wallpaper(T, id, W, H, seed, { count = 90, top = 0, rx = 16 } = {}) {
+function wallpaper(T, id, W, H, seed, { count = 90, top = 0, rx = 16, still = false } = {}) {
   const rand = rng(seed);
   let s = `<rect width="${W}" height="${H}" rx="${rx}" fill="${T.bg}"/>`;
   s += `<g>`;
   for (let i = 0; i < 3; i++) {
     const x = r1(rand() * W), y = r1(rand() * H), r = 180 + i * 90;
     const dx = r1(30 + rand() * 30), dy = r1(20 + rand() * 20);
-    s += `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#${id}blob)"><animateTransform attributeName="transform" type="translate" dur="${28 + i * 9}s" repeatCount="indefinite" values="0 0;${dx} ${-dy};${-dx} ${dy};0 0" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/></circle>`;
+    s += still ? `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#${id}blob)"/>` : `<circle cx="${x}" cy="${y}" r="${r}" fill="url(#${id}blob)"><animateTransform attributeName="transform" type="translate" dur="${28 + i * 9}s" repeatCount="indefinite" values="0 0;${dx} ${-dy};${-dx} ${dy};0 0" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1;.45 0 .55 1"/></circle>`;
   }
   s += `</g>`;
   const pts = Array.from({ length: count }, () => ({
@@ -107,11 +128,11 @@ function wallpaper(T, id, W, H, seed, { count = 90, top = 0, rx = 16 } = {}) {
   }
   let dots = '';
   for (const p of pts) {
-    const tw = rand() < 0.35
+    const tw = rand() < 0.35 && !still
       ? `<animate attributeName="opacity" values="1;.25;1" dur="${r1(3 + rand() * 4)}s" begin="-${r1(rand() * 6)}s" repeatCount="indefinite"/>` : '';
     dots += `<circle cx="${r1(p.x)}" cy="${r1(p.y)}" r="${r1(p.r)}" fill="hsla(${Math.round(p.h)},46%,${T.starL}%,${T.starA})">${tw}</circle>`;
   }
-  s += `<g><animateTransform attributeName="transform" type="translate" dur="60s" repeatCount="indefinite" values="0 0;14 -8;0 0" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/>${lines}${dots}</g>`;
+  s += still ? `<g>${lines}${dots}</g>` : `<g><animateTransform attributeName="transform" type="translate" dur="60s" repeatCount="indefinite" values="0 0;14 -8;0 0" calcMode="spline" keySplines=".45 0 .55 1;.45 0 .55 1"/>${lines}${dots}</g>`;
   return `<clipPath id="${id}wp"><rect width="${W}" height="${H}" rx="${rx}"/></clipPath><g clip-path="url(#${id}wp)">${s}</g>`;
 }
 
@@ -127,40 +148,57 @@ function win(T, id, x, y, w, h, caption) {
 <path d="M${x + w - 36} ${y + 16}h9v9h-9Z M${x + w - 36} ${y + 18.5}h9" fill="none" stroke="${T.muted}" stroke-width="1.2"/>`;
 }
 
-// ── hero: menu bar, name, a cycling status line, a rotating point-cloud globe ─
+// ── hero: menu bar, name + pitch, what I build (typed), stack chips, proof
+// points under a rotating point-cloud globe ──────────────────────────────────
 function hero(T, id, c) {
-  const W = 1200, H = 470;
-  const p = c.profile, s = c.site;
-  const city = p.location.split(',')[0];
-  const games = Object.keys(c.gameNames || {}).length;
+  const W = 1200, H = 480;
+  const p = c.profile;
+  const city = p.location.split(',').slice(0, 2).join(',');
   const date = new Date().toLocaleDateString('en-GB', { weekday: 'short', day: 'numeric', month: 'short', timeZone: 'America/Edmonton' });
 
-  let b = defs(T, id) + wallpaper(T, id, W, H, 17, { top: 40 });
+  let b = FACE + defs(T, id) + wallpaper(T, id, W, H, 17, { top: 40 });
   // menu bar
   b += `<rect width="${W}" height="40" fill="${T.glass}"/><line x1="0" y1="40.5" x2="${W}" y2="40.5" stroke="${T.line}"/>
 <rect x="22" y="14" width="12" height="12" rx="3.5" fill="${T.accent}"/>
-<text x="44" y="25" font-family="${SANS}" font-size="14" font-weight="700" fill="${T.ink}">EchoOS</text>
+<text x="44" y="25" font-family="${DISPLAY}" font-size="14" font-weight="700" fill="${T.ink}">EchoOS</text>
 <text x="112" y="25" font-family="${MONO}" font-size="11" letter-spacing="1.6" fill="${T.muted}">ABOUT</text>
 <rect x="${W - 190}" y="10" width="34" height="20" rx="6" fill="none" stroke="${T.line}"/>
 <text x="${W - 173}" y="24.5" text-anchor="middle" font-family="${MONO}" font-size="11" fill="${T.inkSoft}">⌘K</text>
 <text x="${W - 22}" y="25" text-anchor="end" font-family="${MONO}" font-size="12" fill="${T.muted}">${esc(date)}</text>`;
+  if (OPEN) b += pill(T, W - 202, 10, OPEN, { anchor: 'end' });
 
-  // identity
+  // identity and pitch
   const tag = p.tagline.match(/^(.{1,42})\s(.*)$/) || [0, p.tagline, ''];
-  b += `<text x="64" y="138" font-family="${MONO}" font-size="15" font-weight="600" letter-spacing="2.4" fill="${T.accent}">${esc(`${p.title} · ${city}`.toUpperCase())}</text>
-<text x="60" y="222" font-family="${SANS}" font-size="84" font-weight="800" letter-spacing="-2" fill="${T.ink}">${esc(p.name)}</text>
-<text font-family="${SANS}" font-size="23" fill="${T.inkSoft}"><tspan x="64" y="272">${esc(tag[1])}</tspan><tspan x="64" y="302">${esc(tag[2])}</tspan></text>`;
+  b += `<text x="64" y="108" font-family="${MONO}" font-size="14" font-weight="600" letter-spacing="2.4" fill="${T.accent}">${esc(`${p.title} · ${city}`.toUpperCase())}</text>
+<text x="60" y="184" font-family="${DISPLAY}" font-size="78" font-weight="700" letter-spacing="-2" fill="${T.ink}">${esc(p.name)}</text>
+<text font-family="${SANS}" font-size="22" fill="${T.inkSoft}"><tspan x="64" y="226">${esc(tag[1])}</tspan><tspan x="64" y="254">${esc(tag[2])}</tspan></text>
+<text x="64" y="300" font-family="${MONO}" font-size="12" font-weight="600" letter-spacing="2.4" fill="${T.muted}">${esc(PITCH)}</text>`;
 
-  // cycling status line: each entry types in, holds, clears
-  const latest = c.posts[0];
-  const lines = [
-    `¶  latest post: ${clip(latest.title, 40)}`,
-    `{} ${s.projects} projects · ${s.posts} posts · ${s.words.toLocaleString('en-US')} words`,
-    `▲  ${games} games in the Arcade, drawn in code`,
-  ];
-  const fs = 16, cw = CW * fs, D = 7 * lines.length, bx = 64, by = 356;
+  // what I build (typed), the stack as chips, proof points under the globe
+  b += typed(T, id, BUILD, 64, 312).svg;
+  b += chips(T, STACK, 64, 378, 660);
+  const proof = proofPoints(c);
+  b += proofRow(T, proof, W - 44, 386);
+
+  b += globe(T, id, 930, 214, 116);
+  return svg(W, H, `${p.name}: ${p.title}, ${p.location}. ${p.tagline}. ${BUILD.join('; ')}. Stack: ${STACK.join(', ')}. ${proof.map((q) => q.join(' ').toLowerCase()).join(' · ')}.`, b);
+}
+
+// Availability pill with a pulsing dot; `anchor: 'end'` puts its right edge at x.
+function pill(T, x, y, text, { anchor = 'start', pulse = 2.4 } = {}) {
+  const w = r1(len(text) * CW * 11 + 34), px = anchor === 'end' ? x - w : x;
+  return `<rect x="${px}" y="${y}" width="${w}" height="20" rx="10" fill="${T.accent}" fill-opacity=".14" stroke="${T.accent}" stroke-opacity=".45"/>
+<circle cx="${px + 12}" cy="${y + 10}" r="3.5" fill="${T.accent}"><animate attributeName="opacity" values="1;.3;1" dur="${pulse}s" repeatCount="indefinite"/></circle>
+${mono(px + 22, y + 14, text, 11, T.ink)}`;
+}
+
+// A prompt box that types each line in, holds it, clears it: 7 s per line.
+// A line of the form 'problem → fix' draws the fix brighter, after an accent
+// arrow; each part pins its own advance, so the reveal still lines up.
+function typed(T, id, lines, bx, by, fs = 16) {
+  const cw = CW * fs, D = 7 * lines.length;
   const boxW = Math.max(...lines.map(len)) * cw + 70;
-  b += `<rect x="${bx}" y="${by}" width="${r1(boxW)}" height="46" rx="11" fill="${T.surface2}" fill-opacity=".7" stroke="${T.line}"/>
+  let b = `<rect x="${bx}" y="${by}" width="${r1(boxW)}" height="46" rx="11" fill="${T.surface2}" fill-opacity=".7" stroke="${T.line}"/>
 <text x="${bx + 18}" y="${by + 29}" font-family="${MONO}" font-size="${fs}" font-weight="600" fill="${T.accent}">➜</text>`;
   const caret = [];
   lines.forEach((ln, i) => {
@@ -170,20 +208,61 @@ function hero(T, id, c) {
     w.push([i * 7 + 6.6, 0]);
     caret.push([t0, '0 0']);
     b += `<clipPath id="${id}ty${i}"><rect x="${tx}" y="${by + 8}" height="32" width="0">${steps('width', w, D)}</rect></clipPath>`;
-    b += `<g clip-path="url(#${id}ty${i})">${mono(tx, by + 29, ln, fs, T.ink)}</g>`;
+    const [ask, fix] = ln.split(' → ');
+    const text = fix === undefined ? mono(tx, by + 29, ln, fs, T.ink)
+      : mono(tx, by + 29, ask, fs, T.inkSoft)
+        + mono(r1(tx + (len(ask) + 1) * cw), by + 29, '→', fs, T.accent, 'font-weight="600"')
+        + mono(r1(tx + (len(ask) + 3) * cw), by + 29, fix, fs, T.ink, 'font-weight="600"');
+    b += `<g clip-path="url(#${id}ty${i})">${text}</g>`;
   });
   caret.sort((a, b2) => a[0] - b2[0]);
   b += `<g><rect x="${bx + 44}" y="${by + 14}" width="9" height="19" rx="1.5" fill="${T.accent}"><animate attributeName="opacity" values="1;0" dur="1s" calcMode="discrete" repeatCount="indefinite"/></rect>${steps(0, [[0, '0 0'], ...caret], D, { type: 'translate' })}</g>`;
+  return { svg: b, D, w: boxW };
+}
 
-  b += globe(T, id, 918, 262, 138);
-  return svg(W, H, `${p.name}: ${p.title}, ${p.location}. ${p.tagline}.`, b);
+// Stack chips, flowed into rows of 36 px that wrap at maxX.
+function chips(T, items, x0, y0, maxX, cfs = 13) {
+  let b = '', x = x0, y = y0;
+  for (const k of items) {
+    const w = r1(len(k) * CW * cfs + 24);
+    if (x + w > maxX) { x = x0; y += 36; }
+    b += `<rect x="${x}" y="${y}" width="${w}" height="28" rx="8" fill="${T.surface2}" fill-opacity=".75" stroke="${T.line}"/>${mono(x + 12, y + 18.5, k, cfs, T.inkSoft)}`;
+    x += w + 8;
+  }
+  return b;
+}
+
+// Proof points from the site's own data: years in software, years with LLMs,
+// the master's degree.
+function proofPoints(c) {
+  const yrs = (n) => c.skills.flatMap((g) => g.items).find((k) => k.name === n)?.years;
+  const msc = c.education.find((e) => /^Master/.test(e.degree));
+  return [
+    [`${c.profile.stats[0].display}`, 'YEARS IN SOFTWARE'],
+    [`${yrs('Large Language Models')}y`, 'LLMS · RAG · AGENTS'],
+    msc ? ['MSc', `COMP. SCIENCE${msc.gpa ? ` · ${msc.gpa.split('/')[0]} GPA` : ''}`] : [`${c.site.projects}`, 'OPEN-SOURCE PROJECTS'],
+  ];
+}
+
+// Big number over a mono label, columns sized to their longer line, the group
+// ending at xEnd; y is the top of the dividers.
+function proofRow(T, proof, xEnd, y) {
+  const colW = proof.map(([big, label]) => Math.max(len(big) * 0.62 * 36, len(label) * (CW * 10.5 + 1.2)));
+  const gap = 34;
+  let x = xEnd - colW.reduce((a, w) => a + w, 0) - gap * (proof.length - 1), b = '';
+  proof.forEach(([big, label], i) => {
+    if (i) { x += colW[i - 1] + gap; b += `<line x1="${r1(x - gap / 2)}" y1="${y}" x2="${r1(x - gap / 2)}" y2="${y + 54}" stroke="${T.line}"/>`; }
+    b += `<text x="${r1(x)}" y="${y + 32}" font-family="${DISPLAY}" font-size="36" font-weight="700" letter-spacing="-1" fill="${T.ink}">${esc(big)}</text>
+<text x="${r1(x)}" y="${y + 54}" font-family="${MONO}" font-size="10.5" font-weight="600" letter-spacing="1.2" fill="${T.muted}">${esc(label)}</text>`;
+  });
+  return b;
 }
 
 // A sphere of points turning about a tilted axis. Each latitude is a circle
 // that rotates, squashed into an ellipse by scale(1, sin tilt); each dot
 // counter-rotates and is pre-stretched so it stays round. Opacity follows depth.
-function globe(T, id, cx, cy, R) {
-  const tilt = (24 * Math.PI) / 180, k = Math.sin(tilt), kc = Math.cos(tilt), D = 48;
+function globe(T, id, cx, cy, R, { D = 48, MD = 16 } = {}) {
+  const tilt = (24 * Math.PI) / 180, k = Math.sin(tilt), kc = Math.cos(tilt);
   const rand = rng(5);
   let g = `<radialGradient id="${id}orb" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="${T.accent}" stop-opacity=".22"/><stop offset=".6" stop-color="${T.accent}" stop-opacity=".06"/><stop offset="1" stop-color="${T.accent}" stop-opacity="0"/></radialGradient>
 <circle cx="${cx}" cy="${cy}" r="${R * 1.9}" fill="url(#${id}blob)"/>`;
@@ -223,7 +302,7 @@ function globe(T, id, cx, cy, R) {
 
   // orbit ring front half, and a moon that dims while it passes behind
   g += `<path d="${arc(1)}" transform="rotate(${rot} ${cx} ${cy})" fill="none" stroke="${T.accent}" stroke-opacity=".45"/>`;
-  const MD = 16, mk = oy / ox, mop = [];
+  const mk = oy / ox, mop = [];
   for (let j = 0; j <= 36; j++) {
     const a = (j * 10 * Math.PI) / 180;
     const behind = Math.sin(a) < 0 && Math.abs(ox * Math.cos(a)) < R * 0.95;
@@ -346,7 +425,7 @@ function skyline(T, id, days) {
   const pt = (p) => `${r1(p[0])},${r1(p[1])}`;
   const shade = (col, t) => mix(col, T.bg, t);
 
-  let b = defs(T, id) + wallpaper(T, id, W, H, 41, { count: 60 });
+  let b = FACE + defs(T, id) + wallpaper(T, id, W, H, 41, { count: 60 });
   b += `<style>
 .b{transform-box:fill-box;transform-origin:50% 100%;animation:rise 1s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--w)*24ms + .2s)}
 .g{fill:var(--c);animation:glint 10s calc(var(--w)*50ms + 2.5s) infinite}
@@ -355,7 +434,7 @@ function skyline(T, id, days) {
 @media (prefers-reduced-motion:reduce){.b,.g{animation:none}}
 </style>`;
   b += `<text x="40" y="70" font-family="${MONO}" font-size="13" font-weight="600" letter-spacing="2.4" fill="${T.accent}">LAST 12 MONTHS</text>
-<text x="37" y="136" font-family="${SANS}" font-size="64" font-weight="800" letter-spacing="-1.5" fill="${T.ink}">${total.toLocaleString('en-US')}</text>
+<text x="37" y="136" font-family="${DISPLAY}" font-size="64" font-weight="700" letter-spacing="-1.5" fill="${T.ink}">${total.toLocaleString('en-US')}</text>
 <text x="40" y="164" font-family="${SANS}" font-size="18" fill="${T.inkSoft}">contributions on GitHub</text>`;
   const facts = [
     ['busiest day', `${best.t.toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })} · ${best.count}`],
@@ -406,12 +485,12 @@ function project(T, id, p) {
   const stack = p.tech.slice(0, 3).join(' · ');
   const full = p.desc.replace(/\s*Built with .*$/, ''), max = Math.floor((W - 76) / (15 * 0.5));
   const desc = len(full) <= max ? full : `${[...full].slice(0, max).join('').replace(/[\s,;:]*\S*$/, '')}…`;
-  const b = defs(T, id) + `<rect x=".5" y="4.5" width="${W - 1}" height="${H - 9}" rx="12" fill="${T.surface}" stroke="${T.line}"/>
+  const b = FACE + defs(T, id) + `<rect x=".5" y="4.5" width="${W - 1}" height="${H - 9}" rx="12" fill="${T.surface}" stroke="${T.line}"/>
 <path d="M.5 48.5V16.5a12 12 0 0 1 12-12H${W - 12.5}a12 12 0 0 1 12 12V48.5Z" fill="url(#${id}sheen)"/>
 <line x1=".5" y1="48.5" x2="${W - .5}" y2="48.5" stroke="${T.line}"/>
 <text x="38" y="${cy + 46}" font-family="${SANS}" font-size="15" fill="${T.inkSoft}">${esc(desc)}</text>
 <circle cx="22" cy="${cy}" r="4" fill="${T.accent}"/>
-<text x="38" y="${cy + 6}" font-family="${SANS}" font-size="18" font-weight="700" fill="${T.ink}">${esc(p.title)}<tspan dx="14" font-family="${MONO}" font-size="15" font-weight="400" fill="${T.muted}">${esc(stack)}</tspan></text>
+<text x="38" y="${cy + 6}" font-family="${DISPLAY}" font-size="18" font-weight="700" fill="${T.ink}">${esc(p.title)}<tspan dx="14" font-family="${MONO}" font-size="15" font-weight="400" fill="${T.muted}">${esc(stack)}</tspan></text>
 <text x="${W - 20}" y="${cy + 6}" text-anchor="end" font-family="${MONO}" font-size="18" font-weight="600" fill="${T.accent}">↗</text>`;
   return svg(W, H, `${p.title}: ${firstSentence(p.desc)} Built with ${p.tech.join(', ')}.`, b);
 }
@@ -429,12 +508,12 @@ const DOCK = [
   ['email', '@', 'Email', 'mailto:echoybl1123@gmail.com'],
 ];
 function tile(T, id, glyph, label) {
-  const b = `<defs><linearGradient id="${id}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.sheen}"/><stop offset=".65" stop-color="${T.sheen}" stop-opacity="0"/></linearGradient></defs>
+  const b = FACE + `<defs><linearGradient id="${id}g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${T.sheen}"/><stop offset=".65" stop-color="${T.sheen}" stop-opacity="0"/></linearGradient></defs>
 <rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="${T.surface2}" stroke="${T.line}"/>
 <rect x="10.5" y="4.5" width="55" height="55" rx="14" fill="url(#${id}g)"/>
 <path d="M24 5.5h28" stroke="${T.glassHi}"/>
 <text x="38" y="38" text-anchor="middle" font-family="${MONO}" font-size="17" font-weight="600" fill="${T.ink}">${esc(glyph)}</text>
-<text x="38" y="78" text-anchor="middle" font-family="${SANS}" font-size="12" font-weight="600" fill="${T.muted}">${esc(label)}</text>`;
+<text x="38" y="78" text-anchor="middle" font-family="${DISPLAY}" font-size="12" font-weight="700" fill="${T.muted}">${esc(label)}</text>`;
   return svg(76, 86, label, b);
 }
 
@@ -450,24 +529,28 @@ function dockMd() {
 const splice = (md, key, body) =>
   md.replace(new RegExp(`(<!-- ${key}:START -->)[\\s\\S]*?(<!-- ${key}:END -->)`), `$1\n${body}\n$2`);
 
-// ── main ─────────────────────────────────────────────────────────────────────
-const content = await (await fetch(`${SITE}assets/data/content.json`)).json();
-const days = await contributions();
-await mkdir(out, { recursive: true });
-const files = {};
-for (const [name, T] of Object.entries(THEMES)) {
-  const id = name[0];
-  files[`hero-${name}.svg`] = hero(T, `h${id}`, content);
-  files[`desktop-${name}.svg`] = desktop(T, `d${id}`, content);
-  files[`skyline-${name}.svg`] = skyline(T, `s${id}`, days);
-  for (const [key, glyph, label] of DOCK) files[`dock-${key}-${name}.svg`] = tile(T, `t${id}`, glyph, label);
-  for (const p of content.projects.filter((q) => q.featured)) files[`project-${p.slug}-${name}.svg`] = project(T, `p${id}`, p);
-}
-for (const [f, body] of Object.entries(files)) await writeFile(new URL(f, out), body);
+export { THEMES, FACE, DISPLAY, SANS, MONO, CW, SITE, PITCH, BUILD, STACK, OPEN, esc, len, r1, svg, mono, defs, wallpaper, globe, pill, typed, chips, proofPoints, proofRow };
 
-const readmeUrl = new URL('README.md', root);
-let md = await readFile(readmeUrl, 'utf8');
-md = splice(md, 'DOCK', dockMd());
-md = splice(md, 'PROJECTS', projectsMd(content));
-await writeFile(readmeUrl, md);
-console.log(`wrote ${Object.keys(files).length} SVGs · ${days.length} days`);
+// ── main (only when run directly, not when imported) ─────────────────────────
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const content = await (await fetch(`${SITE}assets/data/content.json`)).json();
+  const days = await contributions();
+  await mkdir(out, { recursive: true });
+  const files = {};
+  for (const [name, T] of Object.entries(THEMES)) {
+    const id = name[0];
+    files[`hero-${name}.svg`] = hero(T, `h${id}`, content);
+    files[`desktop-${name}.svg`] = desktop(T, `d${id}`, content);
+    files[`skyline-${name}.svg`] = skyline(T, `s${id}`, days);
+    for (const [key, glyph, label] of DOCK) files[`dock-${key}-${name}.svg`] = tile(T, `t${id}`, glyph, label);
+    for (const p of content.projects.filter((q) => q.featured)) files[`project-${p.slug}-${name}.svg`] = project(T, `p${id}`, p);
+  }
+  for (const [f, body] of Object.entries(files)) await writeFile(new URL(f, out), body);
+
+  const readmeUrl = new URL('README.md', root);
+  let md = await readFile(readmeUrl, 'utf8');
+  md = splice(md, 'DOCK', dockMd());
+  md = splice(md, 'PROJECTS', projectsMd(content));
+  await writeFile(readmeUrl, md);
+  console.log(`wrote ${Object.keys(files).length} SVGs · ${days.length} days`);
+}

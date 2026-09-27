@@ -3,7 +3,7 @@
 <a href="https://e-choness.github.io/portfolio-site/">
   <picture>
     <source media="(prefers-color-scheme: dark)" srcset="assets/generated/hero-dark.svg">
-    <img src="assets/generated/hero-light.svg" alt="Echo Yin, Senior A.I. Engineer in Calgary. Building governed, observable AI systems and the tools around them." width="100%">
+    <img src="assets/generated/hero-light.svg" alt="Echo Yin, Senior A.I. Engineer in Calgary, open to senior AI roles. Builds RAG and search, agents and MCP tools, LLM gateways, and production ML. Python, C#, C++, PyTorch, LangGraph, FastAPI, Azure AI Foundry, AWS. 10+ years in software, MSc Computer Science." width="100%">
   </picture>
 </a>
 

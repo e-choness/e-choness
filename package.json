@@ -1,0 +1,18 @@
+{
+  "name": "e-choness-profile",
+  "private": true,
+  "description": "Build scripts for the e-choness GitHub profile README and social banners",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "banners": "node scripts/banners.mjs",
+    "banners:still": "node scripts/banners.mjs --still"
+  },
+  "devDependencies": {
+    "gifenc": "^1.0.3",
+    "pngjs": "^7.0.0",
+    "puppeteer-core": "^25.12.0"
+  }
+}
