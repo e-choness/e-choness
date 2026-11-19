@@ -474,7 +474,11 @@ function skyline(T, id, days) {
   return svg(W, H, `${total} GitHub contributions in the last 12 months. Busiest day ${facts[0][1]}; longest streak ${longest} days.`, b);
 }
 
-// ── project bars: one slim glass bar per featured project ────────────────────
+// ── project bars: one slim glass bar per shown project ───────────────────────
+// The site lists projects by their `order`, newest first, so the top LATEST
+// are always shown, then every featured one, kept in site order.
+const LATEST = 3;
+const shownProjects = (c) => c.projects.filter((p, i) => i < LATEST || p.featured);
 const firstSentence = (d) => (d.match(/^.*?[.!?](\s|$)/) || [d])[0].trim();
 // Drawn at the same 1200 width as the other images and shown at 100%, so it
 // scales with them; a title row, a hairline, then one line of description.
@@ -519,7 +523,7 @@ function tile(T, id, glyph, label) {
 
 // ── README sections ──────────────────────────────────────────────────────────
 function projectsMd(c) {
-  return c.projects.filter((p) => p.featured).map((p) =>
+  return shownProjects(c).map((p) =>
     `<a href="${SITE}#/proj/${p.slug}"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/generated/project-${p.slug}-dark.svg"><img src="assets/generated/project-${p.slug}-light.svg" alt="${esc(p.title)}: ${esc(firstSentence(p.desc))}" width="100%"></picture></a><br>`).join('\n');
 }
 function dockMd() {
@@ -543,7 +547,7 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
     files[`desktop-${name}.svg`] = desktop(T, `d${id}`, content);
     files[`skyline-${name}.svg`] = skyline(T, `s${id}`, days);
     for (const [key, glyph, label] of DOCK) files[`dock-${key}-${name}.svg`] = tile(T, `t${id}`, glyph, label);
-    for (const p of content.projects.filter((q) => q.featured)) files[`project-${p.slug}-${name}.svg`] = project(T, `p${id}`, p);
+    for (const p of shownProjects(content)) files[`project-${p.slug}-${name}.svg`] = project(T, `p${id}`, p);
   }
   for (const [f, body] of Object.entries(files)) await writeFile(new URL(f, out), body);
 
